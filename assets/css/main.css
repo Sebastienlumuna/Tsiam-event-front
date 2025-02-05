@@ -1077,49 +1077,53 @@ section,
 /*--------------------------------------------------------------
 # Why Us Section
 --------------------------------------------------------------*/
-.why-us .card-item {
-  background: var(--surface-color);
-  padding: 50px 30px;
-  transition: all ease-in-out 0.3s;
-  height: 100%;
-  position: relative;
+
+.why-us .card:hover img {
+  filter: blur(0) !important;
 }
 
-.why-us .card-item span {
-  color: var(--default-color);
-  display: block;
-  font-size: 28px;
-  font-weight: 700;
+.why-us .card:hover {
+  transform: scale(1.05);
+  box-shadow: 1px 30px 30px 1px rgba(0, 140, 255, 0.353);
+}
+/* From Uiverse.io by alexroumi */ 
+.why-us .btn-conf {
+ padding: 15px 25px;
+ border: unset;
+ border-radius: 15px;
+ color: #212121;
+ z-index: 1;
+ background: #e8e8e8;
+ position: relative;
+ font-weight: 1000;
+ font-size: 17px;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms;
+ overflow: hidden;
 }
 
-.why-us .card-item h4 {
-  font-size: 24px;
-  font-weight: 600;
-  padding: 0;
-  margin: 20px 0;
-  color: var(--default-color);
+.why-us .btn-conf::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0;
+ border-radius: 15px;
+ background-color: #212121;
+ z-index: -1;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms
 }
 
-.why-us .card-item h4 a {
-  color: var(--default-color);
+.why-us .btn-conf:hover {
+ color: #e8e8e8;
 }
 
-.why-us .card-item p {
-  font-size: 15px;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  margin: 0;
-  padding: 0;
-}
-
-.why-us .card-item:hover {
-  background: var(--accent-color);
-  padding: 30px 30px 70px 30px;
-}
-
-.why-us .card-item:hover span,
-.why-us .card-item:hover h4 a,
-.why-us .card-item:hover p {
-  color: var(--contrast-color);
+.why-us .btn-conf:hover::before {
+ width: 100%;
 }
 
 /*--------------------------------------------------------------
