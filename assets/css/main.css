@@ -22,15 +22,15 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #283d50; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #007bff; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #0A98D9; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #024286;  /* The default color of the main navmenu links */
-  --nav-hover-color: #007bff; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-color: #000;  /* The default color of the main navmenu links */
+  --nav-hover-color: #0A98D9; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
@@ -45,10 +45,10 @@
 }
 
 .dark-background {
-  --background-color: #1742a4;
+  --background-color: #0A98D9;
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #0d358f;
+  --surface-color: #0A98D9;
   --contrast-color: #ffffff;
 }
 
@@ -221,6 +221,8 @@ h6 {
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
+/* Default styles */
+/* Default styles */
 .header {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -249,6 +251,26 @@ h6 {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
+/* Center logo on mobile */
+@media (max-width: 1199px) {
+  .header .logo {
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .header .get-started-btn {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -365,7 +387,6 @@ h6 {
     color: var(--nav-color);
     font-size: 28px;
     line-height: 0;
-    margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s;
   }
@@ -484,8 +505,12 @@ h6 {
   .mobile-nav-active .navmenu>ul {
     display: block;
   }
-}
 
+  .mobile-nav-active .get-started-btn {
+    display: block;
+    margin: 15px 20px;
+  }
+}
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
@@ -813,32 +838,43 @@ section,
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: 90vh;
+  min-height: 60vh;
   position: relative;
-  padding: 120px 0;
+  padding: 0 0;
   display: flex;
   align-items: center;
-  background: url(../img/hero-bg.png) center bottom no-repeat;
-  background-size: cover;
+  justify-content: center;
 }
 
 @media (max-width: 1200px) {
   .hero {
-    padding: 60px 0;
+    padding: 0 0;
+    min-height: 50vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    background: linear-gradient(135deg, var(--background-color), var(--accent-color));
+  }
+  
+  .hero img {
+    display: none;
   }
 }
 
 .hero h1 {
   margin: 0;
-  font-size: 48px;
+  padding: 0;
+  font-size: 36px;
   font-weight: 700;
-  line-height: 56px;
+  line-height: 44px;
 }
 
 .hero p {
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin: 5px 0 30px 0;
-  font-size: 20px;
+  margin: 0 0 20px 0;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -847,10 +883,10 @@ section,
   background: var(--accent-color);
   font-family: var(--heading-font);
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 10px 28px 12px 28px;
+  padding: 8px 24px 10px 24px;
   border-radius: 50px;
   transition: 0.5s;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
@@ -863,19 +899,19 @@ section,
 }
 
 .hero .btn-watch-video {
-  font-size: 16px;
+  font-size: 14px;
   transition: 0.5s;
-  margin-left: 25px;
+  margin-left: 20px;
   color: var(--default-color);
   font-weight: 600;
 }
 
 .hero .btn-watch-video i {
   color: var(--accent-color);
-  font-size: 32px;
+  font-size: 28px;
   transition: 0.3s;
   line-height: 0;
-  margin-right: 8px;
+  margin-right: 6px;
 }
 
 .hero .btn-watch-video:hover {
@@ -886,14 +922,11 @@ section,
   color: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
-.hero .animated {
-  animation: up-down 2s ease-in-out infinite alternate-reverse both;
-}
 
 @media (max-width: 640px) {
   .hero h1 {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 24px;
+    line-height: 32px;
   }
 
   .hero p {
@@ -916,10 +949,7 @@ section,
   100% {
     transform: translateY(-10px);
   }
-}
-
-/*--------------------------------------------------------------
-# About Section
+}/*--------------------------------------------------------------# About Section
 --------------------------------------------------------------*/
 .about .content h3 {
   font-size: 2rem;
@@ -1568,7 +1598,8 @@ section,
 
 .button:hover {
   transform: scale(1.05);
-  border-color: #fff9;
+  border-color: #fff9; 
+  color: #e8e8e8;
 }
 
 .button:hover .icon {
