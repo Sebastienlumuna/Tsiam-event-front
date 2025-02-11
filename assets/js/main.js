@@ -214,3 +214,12 @@ document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqIte
     faqItem.parentNode.classList.toggle('faq-active');
   });
 });
+document.querySelectorAll('.carousel-indicators').forEach((carouselIndicator) => {
+  carouselIndicator.closest('.carousel').querySelectorAll('.carousel-item').forEach((carouselItem, index) => {
+    if (index === 0) {
+      carouselIndicator.innerHTML += `<li data-bs-target="#${carouselIndicator.closest('.carousel').id}" data-bs-slide-to="${index}" class="active"></li>`;
+    } else {
+      carouselIndicator.innerHTML += `<li data-bs-target="#${carouselIndicator.closest('.carousel').id}" data-bs-slide-to="${index}"></li>`;
+    }
+  });
+});
